@@ -8,9 +8,10 @@
 <form method="POST" action="{{route('vaccine.store')}}" role="form">
 @csrf
 
+<div class="container">
   <div class="form-group" >
     <label for="vc_name">Vaccine Name</label>
-    <input type="text" required name="vc_name" class="form-control" value="{{old('vc-name')}}"  id="vc-name"  placeholder="Enter your name">
+    <input type="text" required name="vc_name" class="form-control" value="{{old('vc_name')}}"  id="vc_name"  placeholder="Enter your name">
     
   </div>
 
@@ -35,7 +36,7 @@
   </div>
   <div class="form-group">
     <label for="starting_time_of_doses">Starting time of doses</label>
-    <input type="string" name="starting_time_of_doses" class="form-control" value="{{old('starting_time_of_doses')}}" id="starting_time_of_doses" placeholder="starting_time_of_doses">
+    <input type="number" name="starting_time_of_doses" class="form-control" value="{{old('starting_time_of_doses')}}" id="starting_time_of_doses" placeholder="starting_time_of_doses">
   </div>
   
 
@@ -45,5 +46,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
+  
 
 @endsection

@@ -19,6 +19,7 @@ class CreateChildrenTable extends Migration
             $table->string('last_name',100);
             $table->string('f_name',100);
             $table->string('m_name',100);
+            $table->bigInteger('nid');
             $table->date('birthDate');
             $table->string('gender');
             $table->string('email',100);
