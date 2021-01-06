@@ -20,7 +20,7 @@ class CreateVaccinesTable extends Migration
             $table->string('route',20);
             $table->integer('no_of_doses');
             $table->string('interval_between_doses',20);
-            $table->string('starting_time_of_doses',200);
+            $table->integer('starting_time_of_doses');
             $table->string('site',200);
             $table->timestamps();
         });

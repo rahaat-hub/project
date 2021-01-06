@@ -17,8 +17,8 @@
   <tbody>
     @foreach($vlntr as $key=> $data)
     <tr>
-      <th scope="row">{{$key+1}}</th>
-      <td>{{$data->first_name}} {{ $data->last_name }}</td>
+      <th scope="row">C {{$key+1}}</th>
+      <td> {{$data->first_name}} {{ $data->last_name }}</td>
       <td>{{$data->gender}}</td>
       <td>{{$data->email}}</td>
       <td>{{$data->phoneNumber}}</td>

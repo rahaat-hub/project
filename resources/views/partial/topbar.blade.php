@@ -162,10 +162,14 @@
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
                         </li>
-
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Login
+                          </button>
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
+                        
+                        @auth
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -195,6 +199,7 @@
                                 </a>
                             </div>
                         </li>
+                        @endauth
 
                     </ul>
 

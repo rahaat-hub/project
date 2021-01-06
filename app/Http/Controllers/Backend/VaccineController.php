@@ -87,6 +87,9 @@ class VaccineController extends Controller
             'vacc'=> Vaccine::findorFail($id)
         ]
     );
+}
+    public function request(){
+        return view('backend.child.request');
     }
 
         

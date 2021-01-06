@@ -27,7 +27,7 @@
             <td>{{$data->disease}}</td>
             <td>{{$data->no_of_doses}}</td>
             <td>{{$data->interval_between_doses}}</td>
-            <td>{{$data->starting_time_of_doses}}</td>
+            <td>{{$data->starting_time_of_doses}} weeks</td>
             <td>{{$data->route}}</td>
             <td>{{$data->site}}</td>
             <td>
