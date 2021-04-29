@@ -41,10 +41,8 @@
         color: #fff;
     }
 </style>
-@if(session()->has('message'))
-    <p class="alert alert-success">{{session()->get('message')}}</p>
-@endif
-<form method="POST" action="{{route('admin.store')}}">
+
+<form method="POST" action="{{route('store')}}">
     {{csrf_field()}}
 
     <div class="container register-form">
@@ -80,8 +78,8 @@
                     <div class="form-row">
                         <div class="col-md-4">
                         
-                            <select id="blood_group" name="blood_group" class="form-control">
-                                <option seected>*blood group</option>
+                            <select id="blood_group" name="blood_group" class="form-control" placeholder="blood_group">
+                                
                                 <option>A+</option>
                                 <option>A-</option>
                                 <option>B+</option>
@@ -91,6 +89,23 @@
                                 <option>AB+</option>
                                 <option>AB-</option>
                             </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <select name="gender" id="gender" class="form-control" placeholder="gender">
+                                
+                                <option >Male</option>
+                                <option >Female</option>
+                            </select>
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                            <select name="role" id="role" class="form-control">
+                                <option selected>admin</option>
+                            
+                            </select>
+                            
                         </div>
                         </div>
                     </div>

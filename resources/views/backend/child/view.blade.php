@@ -9,6 +9,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+
 <style>
 
 body{
@@ -109,215 +110,211 @@ body{
 
 </style>
 
-<div class="container emp-profile">
-            <form method="post" >
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            <!--img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/-->
-                            <img src="{{ URL::asset('/style/img/k.jpg') }}" alt="" srcset="">
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="profile-head">
-                                    <h5>
-                                      {{ $child->first_name}} {{ $child->last_name }}
-                                    </h5>
-                                    <h6>
-                                        Web Developer and Designer
-                                    </h6>
-                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <a style="background-color:#EEEEE " href="">Edit profile</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-work">
-                            <p>WORK LINK</p>
-                            <a href="">Website Link</a><br/>
-                            <a href="">Bootsnipp Profile</a><br/>
-                            <a href="">Bootply Profile</a>
-                            <p>SKILLS</p>
-                            <a href="">Web Designer</a><br/>
-                            <a href="">Web Developer</a><br/>
-                            <a href="">WordPress</a><br/>
-                            <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Kshiti123</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                              
-                                            
+<div id="hello">
 
-                                            <div class="col-md-6">
-                                                <p>{{ $child->first_name }} {{ $child->last_name }}</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                          <div class="col-md-6">
-                                              <label>Gender</label>
-                                          </div>
-                                          <div class="col-md-6">
-                                              <p>{{ $child->gender }}</p>
-                                          </div>
-                                      </div>
-                                        <div class="row">
-                                          <div class="col-md-6">
-                                              <label>Date Of Birth</label>
-                                          </div>
-                                          <div class="col-md-6">
-                                              <p>{{ $child->birthDate }}</p>
-                                          </div>
-                                      </div>
-                                        <div class="row">
-                                          <div class="col-md-6">
-                                              <label>f_name</label>
-                                          </div>
-                                          <div class="col-md-6">
-                                              <p>{{ $child->f_name }}</p>
-                                          </div>
-                                      </div>
-                                        <div class="row">
-                                          <div class="col-md-6">
-                                              <label>m_name</label>
-                                          </div>
-                                          <div class="col-md-6">
-                                              <p>{{ $child->m_name }}</p>
-                                          </div>
-                                      </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{ $child->email }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Phone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{ $child->phoneNumber }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Blood Group</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{ $child->blood_group }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Address</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{ $child->address }}</p>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                              <div class="table-responsive">
-                                <table class="table table-hover">
-                                  <thead>
-                                    <tr>
-                                      <th>Data</th>
-                                      <th>Trattamento</th>
-                                      <th>Prodotti utilizzati</th>
-                                      <th>Colori utilizzati</th>
-                                      <th>Note</th>
-                                      <th>Modifica</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="items">
-                                    <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle ">
-                                      <td>10.05.2017</td>
-                                      <td>MASSAGGIO schiena</td>
-                                      <td>usato loreal</td>
-                                      <td>colore rosso</td>
-                                      <td>il cliente preferisce il verde</td>
-                                      <td><button type="button" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                                      <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
-                                    </tr>
-                                    
-                                    <tr>
-                            <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo1"> 
-                              <table class="table table-striped">
-                                  <h1>Dettagli trattamento</h1>
-                                      
-                                     <tbody>
-                          <tr id='addr0'>
-                            <td>
+    <div class="container">
+            
+        <div class="row">
+           
+            <div class="col-md-6">
+                <div class="profile-head">
+                            <h5>
+                              {{ $child->name }}
+                            </h5>
                             
-                            </td>
-                            <td>
-                            <input type="text" name='name0'  placeholder='Name' class="form-control"/>
-                            </td>
-                            <td>
-                            <input type="text" name='mail0' placeholder='Mail' class="form-control"/>
-                            </td>
-                            <td>
-                            <input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
-                            </td>
-                          </tr>
-                                    <tr id='addr1'></tr>
-                        </tbody>
-                        
-                                 </table>
-                                 <a id="add_row" class="btn btn-default pull-left">Aggiungi riga</a><a id='delete_row' class="pull-right btn btn-default">Elimina riga</a>
-                              
-                              </div> </td>
-                        </tr>
-                                    
-                                    
-                                    
-                                      </tbody>
-                                  
-                                </table>
-                                <hr>
-                               <div class="row">
-                                  <div class="col-md-6 col-md-offset-4 text-center">
-                                    <ul class="pagination" id="myPager"></ul>
-                                  </div>
+                            
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Card</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <a style="background-color:#EEEEE " href="{{ route('child.edit',$child->id) }}">Edit profile</a>
+            </div>
+            
+        </div>
+        <div class="row">
+            
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $child->id }}</p>
+                                    </div>
                                 </div>
-                              </div><!--/table-resp-->
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                    </div>
+                                      
+                                    
+
+                                    <div class="col-md-6">
+                                        <p>{{ $child->name }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-6">
+                                      <label>Gender</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <p>{{ $child->gender }}</p>
+                                  </div>
+                              </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                      <label>Date Of Birth</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <p>{{ $child->child->birthDate }}</p>
+                                  </div>
+                              </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                      <label>Fathr's Nmae</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <p>{{ $child->child->f_name }}</p>
+                                  </div>
+                              </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                      <label>Mother's Name</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <p>{{ $child->child->m_name }}</p>
+                                  </div>
+                              </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $child->email }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $child->phone }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Blood Group</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $child->blood_group }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Address</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $child->child->address }}</p>
+                                    </div>
+                                </div>
+                                <form >
+                                    <div class="col-md-2">
+                                    <button style="margin: 20px 0;" type="submit" onclick="codespeedy()" class="btn btn-success">Print</button>
+                                </div>
+                                </form>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                      <div class="table-responsive">
+                        <table class="table table-success table-striped" style="padding:30x 0" >
+                            <thead>
+                                <tr>
+
+                                    <th scope="col">Card No</th>
+                                    <th scope="col">Vaccine Name</th>
+                                    <th scope="col">1st dose</th>
+                                    <th scope="col">2nd dose</th>
+                                    <th scope="col">3rd dose</th>
+                                    
+                        
+                                </tr>
+                            </thead>
+                           
+                            <tbody>
+                                @foreach ($child->childVaccine  as $key=>$data)
+                              
+                        
+                                <tr>
+                                    <td>{{ $data->child->id }}</td>
+                                    <td >{{ $data->vaccine->vc_name }}</td>  
+                                    <td>{{ $data->first_dose }}</td>
+                                    <td>{{ $data->second_dose }}</td>
+                                    <td>{{ $data->third_dose }}</td>
+                                    
+                                    
+                                    
+                                    
+                                </tr>
+                                
+                                @endforeach
+                           
+                            </tbody>
+                        </table>
+                         
+                        <form >
+                            <div class="col-md-2">
+                            <button style="margin: 20px 0;" type="submit" onclick="codespeedy()" class="btn btn-success">Print</button>
                         </div>
+                        </form>
+                      </div> 
+                    </td>
+                </tr>
+                            
+                            
+                            
+                              </tbody>
+                          
+                        </table>
+                        <hr>
+                       <div class="row">
+                          <div class="col-md-6 col-md-offset-4 text-center">
+                            <ul class="pagination" id="myPager"></ul>
+                          </div>
+                        </div>
+                      </div><!--/table-resp-->
                     </div>
                 </div>
-            </form>           
-        </div>               
+            </div>
+        </div>
+    </div>
+              
+</div>
+
+
+</div>
+ 
+        
+        
+        <script type="text/javascript">
+				
+            function codespeedy(){
+            var print_div = document.getElementById("hello");
+            var print_area = window.open();
+            print_area.document.write(print_div.innerHTML);
+            print_area.document.close();
+             print_area.focus();
+            print_area.print();
+            print_area.close();
+            }
+</script>
 
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
 use App\Models\Volunteer;
@@ -21,15 +22,16 @@ class VolunteerController extends Controller
 
         $validatedData = $request->validate([
 
-            'first_name'=> 'required',
-            'last_name'=> 'required',
+            
+            
+            'name'=> 'required',
             'phoneNumber'=> 'required',
             'email'=> 'required|email',
-            'password'=> 'required|min:8',
+            'password'=> 'required',
             'phoneNumber'=> 'required',
             'blood_group' => 'required',
             'gender' => 'required',
-            'birthDate' => 'required',
+            
 
             
 
@@ -37,16 +39,18 @@ class VolunteerController extends Controller
         ],
 
         );
+        
         $vlntrreg = new Volunteer();
         
-        $vlntrreg->first_name = $request->first_name;
-        $vlntrreg->last_name = $request->last_name;
+        
+        $vlntrreg->name = $request->name;
         $vlntrreg->email = $request->email;
         $vlntrreg->password = $request->password;
         $vlntrreg->gender = $request->gender;
-        $vlntrreg->phoneNumber = $request->phoneNumber;
+        $vlntrreg->phone = $request->phoneNumber;
         $vlntrreg->blood_group = $request->blood_group;
-        $vlntrreg->birthDate = $request->birthDate;
+        $vlntrreg->gender = $request->gender;
+
         $vlntrreg->save();
 
         return redirect()->back()->with('message','Successfully Registerd');
@@ -55,7 +59,8 @@ class VolunteerController extends Controller
         }
 
         public function vlntrlist(){
-            $vlntr = Volunteer ::all();
+            $vlntr = Admin ::where('role', '=', 'volunteer')->get();
+            
             return view('backend.volunteer.volunteerlist',compact('vlntr'));
         }
         public function delete($id){
@@ -63,7 +68,7 @@ class VolunteerController extends Controller
             return redirect()->back();
         }
         public function edit($id){
-            $vlntr=Volunteer::find($id);
+            $vlntr=Admin::find($id);
             
             return view('backend.volunteer.edit',compact('vlntr'));
         }
@@ -99,7 +104,7 @@ class VolunteerController extends Controller
         public function view($id){
     
             return view('backend.volunteer.view',[
-                'vlntr'=>Volunteer::findorFail($id)
+                'vlntr'=>Admin::findorFail($id)
             ]);
         }
      

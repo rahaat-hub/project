@@ -20,6 +20,7 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->string('phone',50);
             $table->string('blood_group',50);
+            $table->string('gender',20);
             $table->string('role',30)->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

@@ -115,29 +115,26 @@ body{
                     <div class="col-md-4">
                         <div class="profile-img">
                             <!--img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/-->
-                            <img src="{{ URL::asset('/style/img/k.jpg') }}" alt="" srcset="">
+                            <!--<img src="{{ URL::asset('/style/img/k.jpg') }}" alt="" srcset="">
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
                                 <input type="file" name="file"/>
                             </div>
+                        -->
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                      {{ $vlntr->first_name}} {{ $vlntr->last_name }}
+                                      {{ $vlntr->name}} 
                                     </h5>
-                                    <h6>
-                                        Web Developer and Designer
-                                    </h6>
-                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                    
+                                    
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -164,12 +161,7 @@ body{
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p> C {{ $vlntr->id }}</p>
-                                            </div>
+                                            
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -179,7 +171,7 @@ body{
                                             
 
                                             <div class="col-md-6">
-                                                <p>{{ $vlntr->first_name }} {{ $vlntr->last_name }}</p>
+                                                <p>{{ $vlntr-> name }}</p>
                                             </div>
                                         </div>
 
@@ -204,7 +196,7 @@ body{
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{{ $vlntr->phoneNumber }}</p>
+                                                <p>{{ $vlntr->phone }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -216,72 +208,7 @@ body{
                                             </div>
                                         </div>
                             </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                              <div class="table-responsive">
-                                <table class="table table-hover">
-                                  <thead>
-                                    <tr>
-                                      <th>Data</th>
-                                      <th>Trattamento</th>
-                                      <th>Prodotti utilizzati</th>
-                                      <th>Colori utilizzati</th>
-                                      <th>Note</th>
-                                      <th>Modifica</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="items">
-                                    <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle ">
-                                      <td>10.05.2017</td>
-                                      <td>MASSAGGIO schiena</td>
-                                      <td>usato loreal</td>
-                                      <td>colore rosso</td>
-                                      <td>il cliente preferisce il verde</td>
-                                      <td><button type="button" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                                      <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
-                                    </tr>
-                                    
-                                    <tr>
-                            <td colspan="12" class="hiddenRow"><div class="accordian-body collapse" id="demo1"> 
-                              <table class="table table-striped">
-                                  <h1>Dettagli trattamento</h1>
-                                      
-                                     <tbody>
-                          <tr id='addr0'>
-                            <td>
                             
-                            </td>
-                            <td>
-                            <input type="text" name='name0'  placeholder='Name' class="form-control"/>
-                            </td>
-                            <td>
-                            <input type="text" name='mail0' placeholder='Mail' class="form-control"/>
-                            </td>
-                            <td>
-                            <input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
-                            </td>
-                          </tr>
-                                    <tr id='addr1'></tr>
-                        </tbody>
-                        
-                                 </table>
-                                 <a id="add_row" class="btn btn-default pull-left">Aggiungi riga</a><a id='delete_row' class="pull-right btn btn-default">Elimina riga</a>
-                              
-                              </div> </td>
-                        </tr>
-                                    
-                                    
-                                    
-                                      </tbody>
-                                  
-                                </table>
-                                <hr>
-                               <div class="row">
-                                  <div class="col-md-6 col-md-offset-4 text-center">
-                                    <ul class="pagination" id="myPager"></ul>
-                                  </div>
-                                </div>
-                              </div><!--/table-resp-->
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\Admin;
 use App\Models\Child;
 use App\Models\Vaccine;
 use App\Models\Volunteer;
+use App\Models\Child_vaccin;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rules\Unique;
-use Carbon\Carbon;
 
-class ChildController extends Controller
+    class ChildController extends Controller
 {
     //
     public function signup(){
@@ -20,106 +22,127 @@ class ChildController extends Controller
     }
     public function store(Request $request){
 
+        
+
         $validatedData = $request->validate([
 
-            'first_name'=> 'required',
-            'last_name'=> 'required',
+            'name'=>'required',
             'f_name'=> 'required',
             'm_name'=> 'required',
             'nid'=>'required|min:10|Unique:children',
-            'phoneNumber'=> 'required',
+            'phone'=> 'required',
             'email'=> 'required|email',
-            'password'=> 'required|min:8|confirmed',
-            'phoneNumber'=> 'required',
+            'password'=> 'required',
             'address'=> 'required',
             'blood_group' => 'required',
             'gender' => 'required',
             'birthDate' => 'required',
+
     
         ],
 
         );
-        $childreg = new Child();
-        
-        $childreg->first_name = $request->first_name;
-        $childreg->last_name = $request->last_name;
-        $childreg->f_name = $request->f_name;
-        $childreg->m_name = $request->m_name;
-        $childreg->nid = $request->nid;
-        $childreg->email = $request->email;
-        $childreg->password = $request->password;
-        $childreg->gender = $request->gender;
-        $childreg->phoneNumber = $request->phoneNumber;
-        $childreg->address = $request->address;
-        $childreg->blood_group = $request->blood_group;
-        $childreg->birthDate = $request->birthDate;
 
-        
-        $childreg->save();
 
-        return redirect()->route('child.findcard')->with('message','Successfully Registerd');
+       $admin = Admin::create([
+            'name' =>  $request->name ,
+            'phone' =>  $request->phone ,
+            'email' =>  $request->email ,
+            'password' => bcrypt($request->password ) ,
+            'blood_group' =>  $request->blood_group ,
+            'gender' =>  $request->gender ,
+ 
+         ]);
+
+         Child::create([
+              'admin_id'=>  $admin->id,
+            'f_name'=>$request->f_name,
+            'm_name'=>$request->m_name,
+            'nid'=>$request->nid,
+            'birthDate'=>$request->birthDate,
+            'address'=>$request->address,
+            
+            
+         ]);
+
+        return redirect()->route('child.list')->with('message','Successfully Registerd');
 
 
         }
 
-        public function childslist(){
-            $child = Child ::all();
-            return view('backend.child.childslist',compact('child'));
-        }
+        
 
         public function delete($id){
-            Child::find($id)->delete();
+            Admin::with('child')->find($id)->delete();
             return redirect(route('child.list'));
         }
 
-        public function view($id){
-
+        public function view($id){       
+            
+            // dd(Admin::with('child','childVaccine','vaccine')->findOrFail($id));
+            //dd(Child::with('childVaccine')->findOrFail($id));
             return view('backend.child.view',[
-                'child'=> Child::findOrFail($id)
+        
+                'child'=> Admin::with('child','childVaccine','vaccine')->findOrFail($id)
+                
             ]);
+            
         }
 
         public function edit($id){
-            $ch = Child::find($id);
-            return view('backend.child.edit',compact('ch'));
+            $ch = Admin::with('child')->find($id);
+            
+            return view('backend.user',compact('ch'));
         }
         public function update(Request $request,$id){
+            
             $validatedData = $request->validate([
 
-                'first_name'=> 'required',
-                'last_name'=> 'required',
+                'name'=> 'required',
+                
                 'f_name'=> 'required',
                 'm_name'=> 'required',
-                'nid'=>'required|min:10|Unique:children',
-                'phoneNumber'=> 'required',
+                
+                
                 'email'=> 'required|email',
                 
-                'phoneNumber'=> 'required',
+                'phone'=> 'required',
                 'address'=> 'required',
                 'blood_group' => 'required',
-                'gender' => 'required',
+                'gender'=> 'required',
                 'birthDate' => 'required',
         
             ],
     
             );
-            $childup = Child::find($id);
             
-            $childup->first_name = $request->first_name;
-            $childup->last_name = $request->last_name;
+
+            $adminup = Admin::with('child')->find($id);
+           
+            $adminup->name =  $request->name ;
+            $adminup->phone =  $request->phone ;
+            $adminup->email =  $request->email ;
+           // $adminup->password = bcrypt($request->password ) ;
+            $adminup->blood_group =  $request->blood_group ;
+            $adminup->gender =  $request->gender ;
+        
+            $adminup->save();
+            
+            
+            $childup = $adminup->child; 
+            
+        
             $childup->f_name = $request->f_name;
             $childup->m_name = $request->m_name;
-            $childup->nid = $request->nid;
-            $childup->email = $request->email;
             
-            $childup->gender = $request->gender;
-            $childup->phoneNumber = $request->phoneNumber;
             $childup->address = $request->address;
-            $childup->blood_group = $request->blood_group;
+            
             $childup->birthDate = $request->birthDate;
-    
             
             $childup->save();
+    
+            
+            
     
             return redirect()->route('child.list')->with('message','Successfully Updated');
         }
@@ -131,23 +154,49 @@ class ChildController extends Controller
         
         public function cardshow(Request $request){
         
-            $card= Child::with('vaccine')->find($request->id);
+            $card= Admin::with('child','vaccine')->find($request->id);
               
             
             // dd($card);
 
             $vcc= Vaccine::all();
-            
-            
+        
+           
 
-            $birthday = $card->birthDate;
+            $birthday =$card->child->birthDate;
+            
+            
             // $diff=$birthday->diff(date()->now())->days;
             $user_age  =  Carbon::parse($birthday)->diff(Carbon::now())->days/7;
             
+            $age = Carbon::parse($birthday)->diff(Carbon::now())->format('%y Year %m Month %d day');
+            
             $user_age = (int) $user_age;
             
-            return view('backend.child.request',compact('card','vcc','user_age','birthday'));
+            return view('backend.child.request',compact('card','vcc','user_age','birthday','age'));
+        }
+
+        public function allinfo(){
+           
+        //    dd(Child_vaccin::with(['child','vaccine'])->get());
+            return view('backend.child.vaccines',[
+                'child'=>Child_vaccin::with(['child','vaccine'])->get()
+                
+            ]);
         }
         
+        public function new(){
+            return view('backend.user');
+        }
+        /**public function allinfo(){       
+            dd( Admin::with('child','childVaccine','vaccine')->get());
+            //dd(Child::with('admin','childVaccine','vaccine')->findOrFail($id));
+            //dd(Child::with('childVaccine')->findOrFail($id));
+            return view('backend.child.vaccines',[
+        
+                'allinfo'=> Admin::with('child','childVaccine','vaccine')->get()
+                
+            ]);
+        }*/
         
 }

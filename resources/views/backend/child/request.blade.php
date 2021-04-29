@@ -6,9 +6,12 @@
 @endif
 
     <div style="text-align:center">
-        <pre>{{ $card-> first_name }} {{ $card->last_name }}</pre>
-        <pre>{{ $card-> phoneNumber }}</pre>
+        <pre>{{ $card-> name }}</pre>
+        <pre>{{ $card-> phone }}</pre>
         <pre>{{ $card-> email }}</pre>
+        <pre> <b> Age : </b>{{ $age }} - {{ $user_age }} (Weeks)</pre>
+        
+        
         
         
         
@@ -38,21 +41,49 @@
                                 <div class="container ">
                                     <table class="table table-striped">
                                        
-                                        @foreach ($vcc as $data)
-                                        @if ( $data->starting_time_of_doses <= $user_age)
+                                    @foreach ($vcc as $data)
+                                        
+                                        @php
+                                         $doesCount=0;
+                                        @endphp
+                                       
+                                       @foreach ($card->vaccine as $vac)
+                                       @php if($vac->vaccine_id==$data->id)
+                                       {
+                                           $doesCount=$vac->dose_no??0;
+                                           
+                                       }
+                                       
+                                       @endphp
+                                   @endforeach
+                                   {{-- @dd($doesCount) --}}
+                                   {{-- @if($data->id==2)
+                                   @dd($data->interval_between_doses * $doesCount + $data->starting_time_of_doses)
+                                   @endif --}}
+                                {{-- @dd($user_age) --}}
                                         <tbody>
                                             <tr id="addr0">
                                                 <div class="form-check">
-                                                    <input @foreach ($card->vaccine as $vac)
-                                                        @if($vac->vaccine_id==$data->id) checked disabled @endif
-                                                    @endforeach 
+                                               
+                                                    <input 
+                                                      
                                                     
+                                                        @if($data->no_of_doses==$doesCount) checked disabled @endif
+                                                        @if($data->interval_between_doses * $doesCount + $data->starting_time_of_doses == $user_age) enabled="enabled" @endif
+                                                        @if($data->interval_between_doses * $doesCount + $data->starting_time_of_doses > $user_age) checked disabled @endif
+                                                        @if ( $data->starting_time_of_doses <= $user_age && ($data->interval_between_doses*$data->no_of_doses + $data->starting_time_of_doses)!=$user_age ) @else checked disabled @endif
+                                                
+                                                        
                                                     name="vaccine[]" class="form-check-input" type="checkbox" value="{{ $data->id  }}"
                                                         id="flexCheckDefault">
+
+                                                        
+                                                       
                                                     <label class="form-check-label" for="flexCheck">
                                                         
-                                                        <p>{{ $data->vc_name }} </p>
+                                                        <p>{{ $data->vc_name }}( Doses: {{ $doesCount }} of {{ $data->no_of_doses }})  </p>
                                                     </label>
+
                                                 </div>
                                             
                                                 <input type="hidden" name="id" value="{{  $card->id }}">
@@ -61,18 +92,11 @@
                                             <tr id="addr1"></tr>
                                             
                                         </tbody>
-                                        @endif
+                                    
                                        
                                         
                                     @endforeach
-                                        <div class="form-content">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label for="date">Date</label>
-                                                    <input type="date" name="date" id="date">
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     
                                     <div>
                                         <button type="submit" class="btn btn-primary">Submit</button>

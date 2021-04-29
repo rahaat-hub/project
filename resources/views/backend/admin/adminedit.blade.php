@@ -70,18 +70,15 @@
                             <input type="Email" name="email" class="form-control" value="{{$ad->email}}" placeholder="Your Email *" />
                             
                         </div>
-                        <div class="form-group">
-                            <input type="password" name="password" class="form-control" value="{{$ad->password}}" placeholder="Your Password *" />
-                            
-                        </div>
+                        
                     </div>
 
                 </div>
                     <div class="form-row">
                         <div class="col-md-4">
                         
-                            <select id="blood_group" name="blood_group" value="{{$ad->name}}" class="form-control">
-                                <option seected>*blood group</option>
+                            <select id="blood_group" name="blood_group" value="{{$ad->blood_group}}" class="form-control" >
+                                <option seected>{{$ad->blood_group}}</option>
                                 <option>A+</option>
                                 <option>A-</option>
                                 <option>B+</option>
@@ -91,6 +88,14 @@
                                 <option>AB+</option>
                                 <option>AB-</option>
                             </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select name="gender" id="gender" class="form-control" value="{{ $ad->gender }}" >
+                                <option selected>{{ $ad->gender }}</option>
+                                <option >Male</option>
+                                <option >Female</option>
+                            </select>
+                            
                         </div>
                         </div>
                     </div>

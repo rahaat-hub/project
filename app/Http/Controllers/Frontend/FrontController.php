@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Vaccine;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
     public function home(){
         return view('web.index');
     }
-    public function signup(){
-        return view('frontend.childsignup');
+    public function duplicate(){
+        return view('web.index2');
     }
-    public function vaccinelist(){
-        return view('web.gallery');
+    
+    public function about(){
+        return view('web.about');
+    }
+    public function schedule(){
+        $list=Vaccine::all();
+        return view('web.schedule',compact('list'));
     }
 }

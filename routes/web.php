@@ -6,8 +6,10 @@ use App\Http\Controllers\Backend\VaccineController;
 use App\Http\Controllers\Backend\VolunteerController;
 use App\Http\Controllers\Backend\OrgController;
 use App\Http\Controllers\Backend\ChildVaccinController;
+use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\ChildController as child;
+use App\Models\Admin;
 use App\Models\Child as ModelsChild;
 use Illuminate\Support\Facades\Route;
 use App\Models\Child_vaccin;
@@ -24,21 +26,35 @@ use Symfony\Component\Routing\Loader\Configurator\Traits\PrefixTrait;
 |
 */
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
-Route::post('/admin/login',[AdminController::class,'store'])->name('admin.store');
+
+Route::post('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.store');
+
+///Child Login
+
+//Route::post('/volunteer/login',[AdminController::class,'volunteerlogin'])->name('volunteer.login');
+
+
+///user login
+//Route::post('/user/login',[AdminController::class,'userLogin'])->name('user.login');
+
+
+//Route::get('/master',[HomeController::class,'master2'])->name('master2');
 
 
 
-Route::group(['middleware'=>'auth','admin'],function(){
+Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
 
-    Route::get('/', function () {
-        return view('backend.master');  })->name('home');
+
+Route::group(['middleware'=>'auth'],function(){
     
-    
-    Route::group(['namespace'=>'Backend'],function(){
+    Route::get('/',[HomeController::class,'home'])->name('home');
+    Route::get('/master',[HomeController::class,'master2'])->name('master2');
+
+    Route::get('/dashboard',[HomeController::class,'dashboard'])->name('dashboard');
         //admin
     
-    //Route::get('/admin/registration',[AdminController::class,'signup'])->name('admin.signup');
-    //Route::post('/admin/admin/store',[AdminController::class,'store'])->name('admin.store');
+    Route::get('/admin/registration',[AdminController::class,'signup'])->name('admin.signup');
+    Route::post('admin/store',[AdminController::class,'store'])->name('store');
     Route::get('/admin/list',[AdminController::class,'adminlist'])->name('admin.list');
     
     
@@ -51,7 +67,11 @@ Route::group(['middleware'=>'auth','admin'],function(){
     //child
     Route::get('/child/registration',[ChildController::class,'signup'])->name('child.signup');
     Route::post('/child/store',[ChildController::class,'store'])->name('child.store');
-    Route::get('/childs/list',[ChildController::class,'childslist'])->name('child.list');
+    Route::get('/childs/list',[AdminController::class,'childslist'])->name('child.list');
+
+    Route::get('/all/child/card/info',[ChildController::class,'allinfo'])->name('allinfo');
+
+    Route::get('/profile',[AdminController::class,'profile'])->name('profile');
     
     
     //Route::get('/childs/login',[ChildController::class,'childslogin'])->name('child.login');
@@ -65,9 +85,9 @@ Route::group(['middleware'=>'auth','admin'],function(){
     //Route::post('/vaccine/card/',[ChildVaccinController::class,'card'])->name('vaccine.card');
     
     //organization
-    Route::get('/org/registration',[OrgController::class,'org'])->name('org.reg');
+    /**Route::get('/org/registration',[OrgController::class,'org'])->name('org.reg');
     Route::post('/org/store',[OrgController::class,'store'])->name('org.store');
-    Route::get('/org/list',[OrgController::class,'orglist'])->name('org.list');
+    Route::get('/org/list',[OrgController::class,'orglist'])->name('org.list');**/
     
     //delete
     Route::get('/child/delete/{id}',[ChildController::class,'delete'])->name('child.delete');
@@ -89,25 +109,45 @@ Route::group(['middleware'=>'auth','admin'],function(){
     //view
     Route::get('/child/view/{id}',[ChildController::class,'view'])->name('child.view');
     Route::get('/volunteer/view/{id}',[VolunteerController::class,'view'])->name('vlntr.view');
+    Route::get('/admin/view/{id}',[AdminController::class,'view'])->name('admin.view');
     Route::get('vaccine/view/{id}',[VaccineController::class,'view'])->name('vaccine.view');
-    
+
     //Vaccine_request
     Route::get('/book/no',[VaccineController::class,'request'])->name('request');
     
     Route::get('/child/book/no',[ChildController::class,'findcard'])->name('child.findcard');
     Route::get('/child/card',[ChildController::class,'cardshow'])->name('child.card');
     Route::post('/provided/vaccine',[ChildVaccinController::class,'childvaccine'])->name('provide.vaccine');
-    });
 
+    Route::get('/card',[ChildVaccinController::class,'viewcard'])->name('viewcard');
+    Route::get('/children',[ChildVaccinController::class,'demo'])->name('demo');
 
+    Route::get('/child/add',[ChildController::class,'new'])->name('new.child');
+    
+    
 });
+    
+    
+    
+    
+
+    //Route::get('/vaccine/card/info',[ChildController::class,'list'])->name('card');
+    
+    
 
 
 
 
-Route::group(['namespace'=>'Frontend'],function(){
+
+
+/**Route::group(['namespace'=>'Frontend'],function(){
     Route::get('/home',[FrontController::class,'home'])->name('index');
-    Route::get('/new/request',[FrontController::class,'signup'])->name('signup');
-    Route::get('/vaccine/list',[FrontController::class,'vaccinelist'])->name('show.vaccine');
-});
+    Route::get('/duplicate/home',[FrontController::class,'duplicate'])->name('duplicate');
 
+    Route::get('/about',[FrontController::class,'about'])->name('about');
+    Route::get('/vaccine/schedule',[FrontController::class,'schedule'])->name('schedule');
+
+    //
+    //Route::get('/acard',[FrontController::class,'viewcard'])->name('view.card');
+
+});**/

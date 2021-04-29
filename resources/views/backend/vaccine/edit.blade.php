@@ -5,8 +5,8 @@
     <p class="alert alert-success">{{session()->get('meessage')}}</p>
 @endif
 
-
-<form method="POST" action="{{route('vaccine.update',$vacc->id)}}" role="form">
+<div class="container-fluid">
+  <form method="POST" action="{{route('vaccine.update',$vacc->id)}}" role="form">
 @csrf
 
   <div class="form-group" >
@@ -46,5 +46,7 @@
   </div>
   <button type="save" class="btn btn-primary">Submit</button>
 </form>
+</div>
+
 
 @endsection
