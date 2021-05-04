@@ -33,7 +33,11 @@
             <td>{{$data->vc_name}}</td>
             <td>{{$data->disease}}</td>
             <td>{{$data->no_of_doses}}</td>
+<<<<<<< HEAD
             <td>{{$data->interval_between_doses}} weeks</td>
+=======
+            <td>{{$data->interval_between_doses}}</td>
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
             <td>{{$data->starting_time_of_doses}} weeks</td>
             <td>{{$data->route}}</td>
             <td>{{$data->site}}</td>

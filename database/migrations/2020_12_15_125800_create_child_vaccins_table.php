@@ -17,6 +17,7 @@ class CreateChildVaccinsTable extends Migration
             $table->id();
             $table->integer('child_id');
             $table->integer('vaccine_id');
+<<<<<<< HEAD
             $table->integer('dose_no');
             $table->dateTime('first_dose')->nullable();
             $table->dateTime('second_dose')->nullable();
@@ -24,6 +25,10 @@ class CreateChildVaccinsTable extends Migration
             
             
             
+=======
+            $table->date('date');
+            $table->string('volunteer_id');
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
         
             $table->timestamps();
         });

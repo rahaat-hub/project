@@ -16,6 +16,15 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
+<<<<<<< HEAD
         return $next($request);
+=======
+        if (auth()->user()->role='admin'){
+
+            return $next($request);
+        }
+        
+        return redirect()->back();
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
     }
 }

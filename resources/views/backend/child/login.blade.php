@@ -280,7 +280,11 @@ input[type=text]:placeholder {
       
           <!-- Icon -->
           <div class="fadeIn first">
+<<<<<<< HEAD
             <img src="{{ asset('/style/img/vaccine-logo.png') }}" id="icon" alt="User Icon" />
+=======
+            <img src="{{ URL::asset('/style/img/Untitled2.png') }}" id="icon" alt="User Icon" />
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
           </div>
       
           <!-- Login Form -->

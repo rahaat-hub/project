@@ -7,7 +7,11 @@
   <table class="table" style="text" >
     <thead class="thead-dark">
       <tr>
+<<<<<<< HEAD
         <th scope="col">Card No</th>
+=======
+        <th scope="col">ID</th>
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
         <th scope="col"> Name</th>
         <th scope="col">BirthID</th>
         
@@ -26,9 +30,15 @@
     <tbody >
       @foreach($child as $key=> $data)
       <tr>
+<<<<<<< HEAD
         <th >{{$data->id}}</th>
         <td>{{$data->name}} </td>
         <td>{{$data->child->nid}}</td>
+=======
+        <th scope="row">{{$key+1}}</th>
+        <td>{{$data->first_name}} {{$data->last_name}}</td>
+        <td>{{$data->nid}}</td>
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
         
         <td>{{$data->child->birthDate}}</td>
         <td>{{$data->gender}}</td>
@@ -36,6 +46,7 @@
         <td>{{$data->blood_group}}</td>
         
         <td>
+<<<<<<< HEAD
           @if(auth()->user()->role=='volunteer')
           <a href="{{ route('child.view',$data->id)}}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="25px" height="25px" color="green">
@@ -67,6 +78,11 @@
               @endif
 
 
+=======
+              <a class="btn btn-primary" href="{{route('child.edit',$data->id)}}">Edit</a>
+              <a class="btn btn-danger" href="{{route('child.delete',$data->id)}}">Delete</a>
+              <a class="btn btn-success" href="{{route('child.view',$data->id)}}">View</a>
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
         </td>
       </tr>
       @endforeach

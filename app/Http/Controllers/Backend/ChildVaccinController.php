@@ -31,6 +31,7 @@ class ChildVaccinController extends Controller
 foreach($request->vaccine as $data)
 {
     
+<<<<<<< HEAD
   
     $check = Child_vaccin::where('child_id',$request->id)->where('vaccine_id',$data)->first();
 
@@ -93,3 +94,28 @@ foreach($request->vaccine as $data)
         
 
         
+=======
+    
+    $check = Child_vaccin::where('child_id',$request->id)->where('vaccine_id',$data)->first();
+    //if ($abc < 1) {}
+    
+
+        if(!$check)
+        {
+            
+            $child->child_id = $request->id;
+            $child->vaccine_id = $data;
+            $child->save(); 
+        }
+        
+    
+    
+}
+        return redirect()->back()->with('message','successfully provided');
+
+        
+        
+    }
+    
+}
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec

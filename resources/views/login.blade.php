@@ -308,8 +308,12 @@
     } 
     
     #icon {
+<<<<<<< HEAD
       width:49%;
       margin: 20px;
+=======
+      width:60%;
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
     }
     </style>
 
@@ -320,7 +324,11 @@
 
     <!-- Icon -->
     <div class="fadeIn first">
+<<<<<<< HEAD
       <img src="{{ asset('style/img/vaccine-logo.png') }}" id="icon" alt="User Icon" />
+=======
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
     </div>
 
     <!-- Login Form -->

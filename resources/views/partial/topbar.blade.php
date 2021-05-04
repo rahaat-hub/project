@@ -161,14 +161,25 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
+<<<<<<< HEAD
                         </li-->
                       
                         
+=======
+                        </li>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Login
+                          </button>
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         
+<<<<<<< HEAD
                         @if(auth()->user()->role == 'user') 
+=======
+                        @auth
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -241,8 +252,13 @@
                                 @endauth
                             </div>
                         </li>
+<<<<<<< HEAD
                         @endif
                         
+=======
+                        @endauth
+
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
                     </ul>
 
                 </nav>

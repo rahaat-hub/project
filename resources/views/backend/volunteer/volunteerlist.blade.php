@@ -17,8 +17,13 @@
   <tbody>
     @foreach($vlntr as $key=> $data)
     <tr>
+<<<<<<< HEAD
       <th >{{$data->id}}</th>
       <td> {{$data->name}}</td>
+=======
+      <th scope="row">C {{$key+1}}</th>
+      <td> {{$data->first_name}} {{ $data->last_name }}</td>
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
       <td>{{$data->gender}}</td>
       <td>{{$data->email}}</td>
       <td>{{$data->phone}}</td>

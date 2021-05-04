@@ -7,96 +7,88 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="format-detection" content="telephone=no">
-	<title>Kid' school - Home</title>
-<<<<<<< HEAD
-	
-=======
->>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
+	<title>Kid' school - Upcoming events</title>
 	<link href='http://fonts.googleapis.com/css?family=Gochi+Hand|Arvo:400,700' rel='stylesheet' type='text/css'>
-	<link href="{{ asset('web') }}/css/jquery.bxslider.css" rel="stylesheet" />
-	<link rel="stylesheet" href="{{ asset('web') }}/css/style.css" />
+	<link href="css/jquery.bxslider.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.css" />
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
 <body>
-	<div id="wrapper" class="homepage">
+	<div id="wrapper" class="events">
 		<div class="wrapper-holder">
-<<<<<<< HEAD
-
-=======
-			
->>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
-			@include('web.partials.header')
-
-			<section class="promo">
-				<div class="slider-wrap">
-					<ul class="slider">
-						<li>
-							<img class="slide" src="{{ asset('web') }}/images/img-slide01.jpg" alt="">
-							<img class="slide-mask" src="{{ asset('web') }}/images/bg_slider-mask.png" alt="">
-							<div class="slide-info">
-								<h1><a href="#">Education for kids</a></h1>
-								<p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
-								<a class="btn red" href="#">Learn more</a>
-							</div>
-						</li>
-						<li>
-							<img class="slide" src="{{ asset('web') }}/images/img-slide01.jpg" alt="">
-							<img class="slide-mask" src="{{ asset('web') }}/images/bg_slider-mask.png" alt="">
-							<div class="slide-info">
-								<h1><a href="#">Education for kids</a></h1>
-								<p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
-								<a class="btn red" href="#">Learn more</a>
-							</div>
-						</li>
-					</ul>
+			<header id="header">
+				<div class="left-part"></div>
+				<a id="logo" href="index.html">Kid' school</a>
+				<div class="bar-holder">
+					<a class="menu_trigger" href="#">menu</a>
+					<nav id="nav">
+						<ul>
+							<li><a href="about.html">About us</a></li>
+							<li><a class="active" href="events.html">Events</a></li>
+							<li><a href="gallery.html">Gallery</a></li>
+							<li><a href="index.html">Contact</a></li>
+						</ul>
+					</nav>
 				</div>
-			</section>
-			<section id="main">
-				<div class="widget-boxes">
-					<div class="box">
-						<a href="#">
-							<div class="box-info about">
-								<h2>About the school</h2>
-								<p>Enim ad minim veniam nostrud exercitation ullamco laboris nisi ut aliquip commodo consequat duis aute irure dolor.</p>
-							</div>
-						</a>
-					</div>
-					<div class="box">
-						<a href="#">
-							<div class="box-info experience">
-								<h2>Our experience</h2>
-								<p>Perspiciatis unde omnis iste natus voluptatem accusantium doloremque laudantium totam aperiam eaque dolor lorem.</p>
-							</div>
-						</a>
-					</div>
-					<div class="box">
-						<a href="#">
-							<div class="box-info fun">
-								<h2>Big fun for kids!</h2>
-								<p>Accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti corrupti quos dolores et quas molestias.</p>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="top-pink-border"></div>
-				<div class="event-wrap">
-					<div class="block-event">
-						<div class="upcoming-event">
-							<h2>April’s upcoming event</h2>
-							<div class="event-description">
-								<h3><a href="#">Libero tempore cum soluta nobis est eligendi optio cumque nihil</a></h3>
-								<div class="metadata">
-									<time datetime="2014-04-17T09:00">17.04.14 
-									<span>09:00 AM</span></time>
-									<span>Lorem ipsum dolor</span>
-								</div>
-								<p>Vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-								<a class="btn yellow" href="#">Learn more</a>
-							</div>
+			</header>
+			<div class="dvdr"></div>
+			<div class="container">
+				<section id="main">
+					<h1>Upcoming events</h1>
+					<ul>
+					<li class="event-description">
+						<h2><a href="#">Libero tempore cum soluta nobis est eligendi optio cumque nihil</a></h2>
+						<div class="metadata">
+							<time datetime="2014-04-17T09:00">17 Apr 2014 
+							<span>09:00 AM</span></time>
+							<span>Lorem ipsum dolor</span>
 						</div>
-						<div class="widget-calendar">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat ipsum dui, quis posuere urna fermentum nec. Aliquam erat volutpat. Quisque pellentesque nulla dui, in rhoncus dui vestibulum ac. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque convallis, sapien in tempus pharetra, leo lectus ultrices purus, vitae vestibulum arcu velit at leo. </p>
+					</li>
+					<li class="event-description">
+						<h2><a href="#">Eligendi optio cumque nihil Libero tempore cum soluta</a></h2>
+						<div class="metadata">
+							<time datetime="2014-04-22T09:30">22 Apr 2014 
+							<span>09:30 AM</span></time>
+							<span>Dolor sit amet</span>
+						</div>
+						<p>Aliquam erat volutpat. Quisque pellentesque nulla dui, in rhoncus dui vestibulum ac. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque convallis, sapien in tempus pharetra, leo lectus ultrices purus, vitae vestibulum arcu velit at leo. </p>
+					</li>
+					<li class="event-description">
+						<h2><a href="#">Libero tempore cum soluta Eligendi optio cumque</a></h2>
+						<div class="metadata">
+							<time datetime="2014-04-25T07:45">25 Apr 2014 
+							<span>07:45 AM</span></time>
+							<span>Lorem ipsum dolor sit</span>
+						</div>
+						<p>Pellentesque libero nulla, interdum eu lobortis et, scelerisque in enim. Vestibulum accumsan a est in rutrum. Nam molestie mauris eget lacus rutrum, in varius leo volutpat. Integer non tellus pellentesque, faucibus orci ac, interdum arcu. Nam cursus quis arcu eget pharetra. Nulla tellus nulla, rhoncus et venenatis eu, viverra non quam. Vestibulum euismod sem ac ante porta, vitae vestibulum justo semper. Ut sem arcu, porttitor et metus quis.</p>
+					</li>
+					<li class="event-description">
+						<h2><a href="#">Libero tempore cum soluta nobis est eligendi optio cumque nihil</a></h2>
+						<div class="metadata">
+							<time datetime="2014-05-03T09:00">03 May 2014 
+							<span>09:00 AM</span></time>
+							<span>Aliquam erat volutpat</span>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat ipsum dui, quis posuere urna fermentum nec. Quisque pellentesque nulla dui, in rhoncus dui vestibulum ac. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque convallis, sapien in tempus pharetra, leo lectus ultrices purus, vitae vestibulum arcu velit at leo. </p>
+					</li>
+					<li class="event-description">
+						<h2><a href="#">Libero tempore cum soluta nobis est eligendi optio cumque</a></h2>
+						<div class="metadata">
+							<time datetime="2014-05-08T07:50">08 May 2014 
+							<span>07:50 AM</span></time>
+							<span>Lorem ipsum</span>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat ipsum dui, quis posuere urna fermentum nec. Aliquam erat volutpat. Quisque pellentesque nulla dui, in rhoncus dui vestibulum ac. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque convallis, sapien in tempus pharetra, leo lectus ultrices purus, vitae vestibulum arcu velit at leo. </p>
+					</li>
+					</ul>
+				</section>
+				<aside id="sidebar">
+					<div class="widget-calendar">
+						<h3>Event calendar</h3>
+						<div class="wrap-calendar">
 							<table class="event-calendar">
 								<col><col><col><col><col><col><col>
 								<thead>
@@ -246,59 +238,40 @@
 							<div class="legend"><span class="upcoming">Upcoming event</span><span class="archival">Archival event</span> </div>
 						</div>
 					</div>
-				</div>
-				<div class="bottom-pink-border"></div>
 					<div class="widget-boxes news">
-						<h2>Latest news</h2>
-						<div class="box">
-							<a class="news-img" href="#">
-								<img src="images/img-news01.jpg" alt="" />
-								<div class="mask"></div>
-							</a>
-							<div class="box-info">
-								<h3><a href="#">Nostrud exercitation ullamco laboris</a></h3>
-								<div class="metadata">
-									<time datetime="2014-04-17">17.04.14</time>
-									<span>Sarah James</span>
-								</div>
-								<p>Omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam eaque ipsa quae ab illo inventore (...)</p>
+						<h3>Latest news</h3>
+						<ul>
+						<li class="box">
+							<h4><a href="#">Nostrud exercitation ullamco laboris</a></h4>
+							<div class="metadata">
+								<time datetime="2014-04-17">17.04.14</time>
+								<span>Sarah James</span>
 							</div>
-						</div>
-						<div class="box">
-							<a class="news-img" href="#">
-								<img src="images/img-news02.jpg" alt="" />
-								<div class="mask"></div>
-							</a>
-							<div class="box-info">
-								<h3><a href="#">Voluptatem accusantium doloremque</a></h3>
-								<div class="metadata">
-									<time datetime="2014-04-16">16.04.14</time>
-									<span>Tom Jones</span>
-								</div>
-								<p>Voluptatem sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia (...)</p>
+							<p>Omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam eaque ipsa quae ab illo inventore (...)</p>
+						</li>
+						<li class="box">
+							<h4><a href="#">Voluptatem accusantium doloremque</a></h4>
+							<div class="metadata">
+								<time datetime="2014-04-16">16.04.14</time>
+								<span>Tom Jones</span>
 							</div>
-						</div>
-						<div class="box">
-							<a class="news-img" href="#">
-								<img src="images/img-news03.jpg" alt="" />
-								<div class="mask"></div>
-							</a>
-							<div class="box-info">
-								<h3><a href="#">Duis aute irure dolor in reprehenderit</a></h3>
-								<div class="metadata">
-									<time datetime="2014-04-13">13.04.14</time>
-									<span>Alan Smith</span>
-								</div>
-								<p>Adipisicing elit do eiusmod tempor incididunt labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation (...)</p>
+							<p>Voluptatem sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia (...)</p>
+						</li>
+						<li class="box">
+							<h4><a href="#">Duis aute irure dolor in reprehenderit</a></h4>
+							<div class="metadata">
+								<time datetime="2014-04-13">13.04.14</time>
+								<span>Alan Smith</span>
 							</div>
-						</div>
+							<p>Adipisicing elit do eiusmod tempor incididunt labore et dolore magna aliqua enim ad minim veniam nostrud exercitation (...)</p>
+						</li>
+						</ul>
 					</div>
-			</section>
+				</aside>
+				<!-- / sidebar -->
+			</div>
 		</div>
 		<div class="top-blue-border"></div>
-<<<<<<< HEAD
-		@include('web.partials.footer')	
-=======
 		<footer id="footer">
 			<div class="footer-holder">
 				<div class="footer-frame">
@@ -358,18 +331,11 @@
 				</div>
 			</div>
 		</footer>	
->>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
 	</div>
 	
-	<script src="{{ asset('web') }}/js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="{{ asset('web') }}/js/jquery.bxslider.min.js"></script>
-	<script type="text/javascript" src="{{ asset('web') }}/js/jquery.placeholder.js"></script>
-	<script type="text/javascript" src="{{ asset('web') }}/js/main.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
-
-
-=======
-</html>
->>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec

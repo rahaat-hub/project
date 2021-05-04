@@ -5,6 +5,7 @@
         <a class="menu_trigger" href="#">menu</a>
         <nav id="nav">
             <ul>
+<<<<<<< HEAD
                 <li><a href="{{ route('about') }}">About us</a></li>
                 <li><a href="{{ route('schedule') }}">Vaccine schedule</a></li>
                 <li><a href="gallery.html" >Gallery</a></li>
@@ -94,3 +95,13 @@
         </div>
     </div>
 </div>
+=======
+                <li><a href="about.html">About us</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="{{ route('show.vaccine') }}">Gallery</a></li>
+                <li><a href="index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec

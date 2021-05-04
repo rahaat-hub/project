@@ -9,6 +9,7 @@ class Child_vaccin extends Model
 {
     use HasFactory;
     protected $guarded=[];
+<<<<<<< HEAD
 
 
     public function child(){
@@ -22,4 +23,6 @@ class Child_vaccin extends Model
         return $this->belongsTo(Admin::class,'admin','id');
     }
     
+=======
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
 }

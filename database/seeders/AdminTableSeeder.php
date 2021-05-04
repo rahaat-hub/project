@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
+<<<<<<< HEAD
 use App\Models\Child;
 use App\Models\Vaccine;
+=======
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
 use Illuminate\Database\Seeder;
 
 class AdminTableSeeder extends Seeder
@@ -23,6 +26,7 @@ class AdminTableSeeder extends Seeder
             'password'=>bcrypt('12345'),
             'phone'=>'01888736796',
             'blood_group'=>'A+',
+<<<<<<< HEAD
             'gender'=>'Male',
             'role'=>'admin',
            
@@ -110,3 +114,10 @@ class AdminTableSeeder extends Seeder
     }
 }
 
+=======
+            'role'=>'admin',
+           
+        ]); 
+    }
+}
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec

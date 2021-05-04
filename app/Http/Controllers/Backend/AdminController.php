@@ -8,8 +8,11 @@ use App\Models\Child;
 
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use App\Http\Controllers\Controller;
 use App\Models\Child_vaccin;
+=======
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Unique;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -17,12 +20,17 @@ use Symfony\Contracts\Service\Attribute\Required;
 class AdminController extends Controller
 {
     //
+<<<<<<< HEAD
     public function signup(){
         return view('backend.admin.signup');
+=======
+    public function login(){
+        return view('login');
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
     }
-    public function store(Request $request){
-        $validatedData = $request->validate([
+   
 
+<<<<<<< HEAD
             'name'=> 'required',
             'phone'=> 'required',
             'email'=> 'required',
@@ -79,6 +87,23 @@ class AdminController extends Controller
     }
 
    /* public function adminlist(){
+=======
+    public function store(Request $request){
+       
+        $login = $request->only('email','password');
+      
+        if(Auth::attempt($login)){
+            
+            return redirect(route('home'))->with('message','Successfully LogIn!!!');
+            
+        }
+        else{
+            return redirect()->back()->withErrors('Invalid Credentials!!');
+        }
+    }
+
+    public function adminlist(){
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
         $adlist = Admin::all();
         return view('backend.admin.adminlist', compact('adlist'));
        
@@ -130,6 +155,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with('massage',' Successfully updated!!');
     }
+<<<<<<< HEAD
 
     public function volunteer(Request $request){
 
@@ -170,6 +196,10 @@ class AdminController extends Controller
 
 
         
+=======
+    
+    
+>>>>>>> afa5eaa78da113bd3b39a6d82b38a042ba7349ec
 
     }
     public function childslist(){
